@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const qs = require('querystring')
 
-const paramPattern = /\[(?!(\^|\?|\/|\])).+\]/
+const paramPattern = /\[(?!(\^|\?|\/|\[|\]))([^\/]+)\]/
 
 // takes routes and decorates them with a 'match' method that will return { params, query } if a path matches
 function addMatch (route) {
@@ -12,7 +12,7 @@ function addMatch (route) {
   // find any paths prefixed with `:` or `%` or wrapped in `[` `]`, and treat them as capture groups
   while ((matched = routePath.match(paramPattern)) !== null) {
     routePath = routePath.replace(paramPattern, '([^?/]+)')
-    paramNames.push(matched[0].replace('[', '').replace(']', ''))
+    paramNames.push(matched[2])
   }
   // if a route ends with `index`, allow matching that route without matching the `index` part
   if (path.basename(routePath) === 'index') {
