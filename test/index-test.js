@@ -22,7 +22,7 @@ test('uses index.js of a parameter', t => {
   t.plan(2)
   let req = { url: '/test/foo', method: 'GET' }
   t.equal(typeof match(req), 'function', 'finds a route')
-  t.equal(match(req)(), 'test/:param', 'finds the right route')
+  t.equal(match(req)(), 'test/[param]', 'finds the right route')
 })
 
 test('prefers a .js file to a nested index file when there is a conflict', t => {
