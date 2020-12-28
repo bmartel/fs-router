@@ -15,7 +15,7 @@ Use the FS as your micro router
 ### intent
 
 [Micro](https://github.com/vercel/micro) is a fantastic library, but does not come with a router.
-This loosely replicates the api of [next.js](https://github.com/zeit/next.js) and is compatible as a development alternative of vercel's serverless functions.
+This loosely replicates the api of [next.js](https://github.com/vercel/next.js) and is compatible as a development alternative of vercel's serverless functions.
 
 ### usage
 
