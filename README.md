@@ -1,7 +1,6 @@
 # fs-router
 Use the FS as your micro router
-[![Build Status](https://travis-ci.org/bmartel/fs-router.svg?branch=master)](https://travis-ci.org/bmartel/fs-router)
-[![Coverage Status](https://coveralls.io/repos/github/bmartel/fs-router/badge.svg?branch=master)](https://coveralls.io/github/bmartel/fs-router?branch=master)
+[![npm version](https://badge.fury.io/js/%40martel%2Ffs-router.svg)](https://badge.fury.io/js/%40martel%2Ffs-router)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ### "features"
