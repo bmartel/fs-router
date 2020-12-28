@@ -1,7 +1,7 @@
 # fs-router
 Use the FS as your micro router
-[![Build Status](https://travis-ci.org/jesseditson/fs-router.svg?branch=master)](https://travis-ci.org/jesseditson/fs-router)
-[![Coverage Status](https://coveralls.io/repos/github/jesseditson/fs-router/badge.svg?branch=master)](https://coveralls.io/github/jesseditson/fs-router?branch=master)
+[![Build Status](https://travis-ci.org/bmartel/fs-router.svg?branch=master)](https://travis-ci.org/bmartel/fs-router)
+[![Coverage Status](https://coveralls.io/repos/github/bmartel/fs-router/badge.svg?branch=master)](https://coveralls.io/github/bmartel/fs-router?branch=master)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ### "features"
@@ -14,10 +14,8 @@ Use the FS as your micro router
 
 ### intent
 
-[Micro](https://github.com/zeit/micro) is a fantastic library, but does not come with a router.
-After using [next.js](https://github.com/zeit/next.js) and really enjoying the "fs as router" paradigm, I thought it might be nice to do the same with micro.
-
-This is the simplest approach I could think of to create a flexible router that stays out of your way with an intuitive API.
+[Micro](https://github.com/vercel/micro) is a fantastic library, but does not come with a router.
+This loosely replicates the api of [next.js](https://github.com/zeit/next.js) and is compatible as a development alternative of vercel's serverless functions.
 
 ### usage
 
@@ -38,16 +36,16 @@ The above usage assumes you have a folder called `routes` next to the `index.js`
 ```
 routes/
 ├── foo
-│   └── :param
+│   └── [param]
 │       └── thing.js
 └── things
-    └── :id.js
+    └── [id].js
 ```
 
 the above tree would generate the following routes:
 ```
-/foo/:param/thing
-/things/:id
+/foo/[param]/thing
+/things/[id]
 ```
 
 **defining a route**
@@ -64,7 +62,7 @@ module.exports.GET = async function(req, res) {
 
 **path parameters**
 ```javascript
-// routes/foos/:id.js
+// routes/foos/[id].js
 const { send } = require('micro')
 
 // responds to any method at /foos/* (but not /foos or /foos/bar/baz)
